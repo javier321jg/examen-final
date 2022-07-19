@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container-fluid" layout:fragment="page-content">            
+            <nav class="navbar navbar-light bg-light m-2">
+                <h4 class="ps-3"><i class="fa-solid fa-school me-2"></i>Editoriales</h4>
+            </nav>
+            <div class="container mt-3">
+                <h3 th:text="${titulo}"></h3>
+                <hr>
+                <form th:action="@{/pedido/save}" method="post" th:object="${pedido}">                    
+                    <div class="mb-3">
+                        <input type="hidden" th:field="*{id}"
+                               <label for="recipient-name" class="col-form-label">cliente:</label>
+                        <input type="text" th:field="*{cliente}" class="form-control" name="cliente">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Fecha:</label>
+                        <input type="date" id="start" name="trip-start"th:field="*{fecha}"
+                               value="2022-07-22"
+                               min="2022-01-01" max="2023-12-31">
+                        
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('fecha')}"
+                               th:errors="*{fecha}"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">reparto:</label>
+                        <input type="text" class="form-control" th:field="*{reparto}" id="direcion">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('reparto')}"
+                               th:errors="*{reparto}"></small>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">producto:</label>
+                        <input type="text" class="form-control" th:field="*{producto}" id="reparto">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('producto')}"
+                               th:errors="*{producto}"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">cantidad:</label>
+                        <input type="text" class="form-control" th:field="*{cantidad}" id="direcion">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('cantidad')}"
+                               th:errors="*{cantidad}"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">precio:</label>
+                        <input type="text" class="form-control" th:field="*{precio}" id="direcion">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('precio')}"
+                               th:errors="*{precio}"></small>
+                    </div>
+                    <a th:href="@{/pedido}" class="btn btn-secondary" >Cancel</a>
+                    <input type="submit" class="btn btn-primary"/>
+                </form>
+            </div>
+        </div>
+        <!--OTRO SCRIPTS PARA PAGINAS-->
+    <th:block layout:fragment="page-scripts">
+
+    </th:block>
+</body>
+</html>

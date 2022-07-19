@@ -14,7 +14,7 @@
                 <h4 class="ps-3"><i class="fa-solid fa-user-tie me-2"></i>empleados</h4>
             </nav>
             <div class="container mt-3">                
-                <a th:href="@{/empleado/add}" class="btn btn-danger mb-4">
+                <a th:href="@{/empleado/add}" class="btn btn-danger mb-4" sec:authorize="hasRole('ROLE_ADMIN')">
                     <strong class="me-2">Add</strong><i class="fa-solid fa-angle-right"></i>
                 </a>
                 <div class="row">

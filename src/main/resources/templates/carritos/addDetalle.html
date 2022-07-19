@@ -24,12 +24,12 @@
                         <small class="form-text text-danger" th:if="${#fields.hasErrors('cantidad')}"
                                th:errors="*{cantidad}"></small>
                     </div>
-                    <!--<div class="mb-3">
+                    <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">costo:</label>
                         <input type="text" class="form-control"  th:field="*{costo}" id="costo">
                         <small class="form-text text-danger" th:if="${#fields.hasErrors('costo')}"
                                th:errors="*{costo}"></small>
-                    </div>--> 
+                    </div>
                     <div class="mb-3">                        
                         <label for="recipient-name" class="col-form-label">producto:</label>
                         <select th:field="*{producto}" id="producto" class="form-select">

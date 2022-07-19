@@ -16,20 +16,20 @@
                 <h4 class="ps-3"><i class="fa-solid fa-cart-shopping me-2"></i>CARRITO VENTAS</h4>
             </nav>
             <div class="container mt-3">                
-                <a th:href="@{/carrito/add}" class="btn btn-danger mb-4">
+                <a th:href="@{/carrito/add}" class="btn btn-info mb-4">
                     <strong class="me-2">Add</strong><i class="fa-solid fa-hospital-right"></i>
                 </a>
                 
                 <div class="row">
                     <div class="col">
-                        <table class="table table-info" id="tablita">
+                        <table class="table table-hover" id="tablita">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">PRODUCTO</th>
                                     <th scope="col">CANTIDAD</th>
                                     <th scope="col">PRECIO</th>
-                                    <th scope="col">COSTO</th>
+                                    <th scope="col">TOTAL</th>
                                     
                                     <th scope="col" colspan="2" class="text-center" sec:authorize="hasRole('ROLE_ADMIN')">ACCION</th>
                                 </tr>
@@ -44,8 +44,8 @@
                                     <td th:text="${carr.producto.nombre}"></td>
                                     <td th:text="${carr.cantidad}"></td>
                                     <td th:text="${carr.producto.precio}"></td>
-                                    <!--<td th:text="${carr.costo}"></td>--> 
-                                    <td></td>
+                                    <td th:text="${carr.costo}"></td>
+                                    
                                     <td class="text-center" sec:authorize="hasRole('ROLE_ADMIN')">
                                     
                                         <a th:href="@{/carrito/edit/} + ${carr.id}" title="Editar Registro"><i class='fa-solid fa-pen-to-square text-warning me-3'></i></a>
@@ -53,22 +53,25 @@
                                         
                                     </td>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan=3>SubTotal</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan=3>IGV</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan=3>Total</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
                         </table>
                         <p>
-                            <button class="btn btn-danger mb-4">Calcular</button>
+                            <button class="btn btn-info mb-4">Calcular</button>
                         </p>
-                        <div class="row" style="border:1px solid #e3e2e2;padding: 5px;">
-                            <div class="col-md-5">SUB TOTAL</div>
-                            <div class="col-md-5" id="st"></div>
-                        </div>
-                        <div class="row" style="border:1px solid #e3e2e2;padding: 5px;">
-                            <div class="col-md-5">IGV(18%)</div>
-                            <div class="col-md-5" id="igv"></div>
-                        </div>
-                        <div class="row" style="border:1px solid #e3e2e2;padding: 5px;">
-                            <div class="col-md-5">TOTAL</div>
-                            <div class="col-md-5" id="total"></div>
-                        </div>
+                        
                         
                     </div>
                 </div>

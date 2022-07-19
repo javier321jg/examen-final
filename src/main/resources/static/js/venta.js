@@ -25,9 +25,13 @@ function calcular() {
         columnas[4].textContent=(cantidad*precio).toFixed(2);
  
         total+=cantidad*precio;
+        igv+=total*0.18;
+        st+=total-igv;
     });
  
     // mostramos la suma total
     var filas=document.querySelectorAll("#tablita tfoot tr td");
     filas[1].textContent=total.toFixed(2);
+    filas[2].textContent=igv.toFixed(2);
+    filas[3].textContent=st.toFixed(2);
 }

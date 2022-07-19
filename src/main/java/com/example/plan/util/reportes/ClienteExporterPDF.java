@@ -35,7 +35,7 @@ public class ClienteExporterPDF {
     private void escribirCabeceraDeLaTabla(PdfPTable tabla) {
         PdfPCell celda = new PdfPCell();
 
-        celda.setBackgroundColor(Color.BLUE);
+        celda.setBackgroundColor(Color.RED);
         celda.setPadding(6);
 
         Font fuente = FontFactory.getFont(FontFactory.HELVETICA);
@@ -82,7 +82,7 @@ public class ClienteExporterPDF {
         documento.open();
 
         Font fuente = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
-        fuente.setColor(Color.BLUE);
+        fuente.setColor(Color.RED);
         fuente.setSize(18);
 
         Paragraph titulo = new Paragraph("Lista de clientes", fuente);
@@ -98,7 +98,7 @@ public class ClienteExporterPDF {
         PdfPTable tabla = new PdfPTable(7);
         tabla.setWidthPercentage(100);
         tabla.setSpacingBefore(15);
-        tabla.setWidths(new float[]{1f, 2.3f, 2.3f, 6f, 2.9f, 3.9f, 3.8f});
+        tabla.setWidths(new float[]{1f, 2.6f, 2.3f, 6f, 2.9f, 3.9f, 3.8f});
         tabla.setWidthPercentage(110);
 
         escribirCabeceraDeLaTabla(tabla);
